@@ -1,20 +1,27 @@
 # %%
-import numpy as np
 import pandas as pd
-import os
 import matplotlib.pyplot as plt
-import csv
 
-df=pd.read_csv(r'C:\Users\mihir\Downloads\disaster-events new.csv')
-print(df.head())
-print(df.columns)
-print(df.get('Earthquake'))
+df = pd.read_csv(r'./disaster-events new.csv')
 
 
+df_filtered = df[(df['Year'] >= 2018) & (df['Disasters'])]
 
-# %%
-print(df.Disasters)
-print(df.Entity)
-print(df.Year)
-print(df.get('Wildfires'))
+plt.plot(df_filtered['Year'], df_filtered['Disasters'], marker='o', linestyle='-')
+
+plt.title('Number of Disasters Over the Years')
+plt.xlabel('Year')
+plt.ylabel('Number of Disasters')
+
+
+plt.grid(True)
+
+
+plt.show()
+
+
+    
+
+  
+
 
